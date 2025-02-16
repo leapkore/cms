@@ -1,0 +1,151 @@
+header.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e1e2f;
+    padding: 15px 30px;
+    color: #fff;
+    position: relative;
+  }
+  
+  .header-logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Navigation Menu */
+  .header-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .header-menu ul li {
+    display: inline;
+  }
+  
+  .header-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .header-menu ul li a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Desktop Buttons */
+  .header-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .header-buttons a {
+    padding: 10px 16px;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .signin-button {
+    background: transparent;
+    color: #ffcc00;
+  }
+  
+  .signin-button:hover {
+    background: #ffcc00;
+    color: #1e1e2f;
+  }
+  
+  .signup-button {
+    background: #ffcc00;
+    color: #1e1e2f;
+  }
+  
+  .signup-button:hover {
+    background: #e6b800;
+  }
+  
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ffcc00;
+  }
+  
+  /* Hide Mobile Buttons by Default */
+ .mobile-buttons .signin-button{
+    display: none;
+  }
+
+  .mobile-buttons .signup-button{
+    display: none;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .header-menu {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: #1e1e2f;
+      text-align: center;
+      padding: 20px 0;
+      display: none;
+      flex-direction: column;
+    }
+  
+    .header-menu.open {
+      display: flex;
+    }
+  
+    .header-menu ul {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    /* Show Mobile Buttons Only When Menu is Open */
+    .mobile-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .mobile-buttons .signin-button{
+        display: block;
+      }
+    
+      .mobile-buttons .signup-button{
+        display: block;
+      }
+  
+    .mobile-buttons a {
+      padding: 12px;
+      width: 80%;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  
+    /* Hide Desktop Buttons */
+    .header-buttons {
+      display: none;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  }
