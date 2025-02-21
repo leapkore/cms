@@ -1,43 +1,74 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
-  
-    return (
-      <header className="navbar">
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header>
+      <div className="navbar">
+        {/* Logo */}
         <div className="header-logo">
           <Link to="/">CMS</Link>
         </div>
-  
+
         {/* Navigation Menu */}
-        <nav className={`header-menu ${menuOpen ? "open" : ""}`}>
-          <ul>
-            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-            <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-            <li><Link to="/event" onClick={() => setMenuOpen(false)}>Event</Link></li>
-            <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
-  
-            {/* Sign In & Sign Up inside the mobile menu */}
-            <li className="mobile-buttons">
-              <Link to="/signin" onClick={() => setMenuOpen(false)} className="signin-button">Sign In</Link>
-              <Link to="/signup" onClick={() => setMenuOpen(false)} className="signup-button">Sign Up</Link>
-            </li>
-          </ul>
-        </nav>
-  
-        {/* Desktop Buttons (Visible in Desktop Only) */}
-        <div className="header-buttons">
-          <Link to="/signin" className="signin-button">Sign In</Link>
-          <Link to="/signup" className="signup-button">Sign Up</Link>
+        <ul className="header-menu">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/event">Event</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+
+        {/* Header Buttons */}
+        <div className="header-button">
+          <Link to="/signin" className="signin-button">
+            Log In
+          </Link>
+          <Link to="/signup" className="signup-button">
+            Register Now
+          </Link>
         </div>
-  
-        {/* Hamburger Icon */}
-        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
+
+        {/* Toggle Menu for Mobile */}
+        <div className="toggle-menu" onClick={() => setMenuOpen(!menuOpen)}>
+          <i className={`fas ${menuOpen ? "fa-xmark" : "fa-bars"}`}></i>
         </div>
-      </header>
-    );
-  }
+
+        {/* Dropdown Menu (Visible on Mobile) */}
+        <ul className={`header-dropdown-menu ${menuOpen ? "open" : ""}`}>
+          <li>
+            <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+          </li>
+          <li>
+            <Link to="/event" onClick={() => setMenuOpen(false)}>Event</Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+          </li>
+          <li>
+            <Link to="/signin" className="dropdown-signin-button" onClick={() => setMenuOpen(false)}>
+              Log In
+            </Link>
+          </li>
+          <li>
+            <Link to="/signup" className="dropdown-signup-button" onClick={() => setMenuOpen(false)}>
+              Register Now
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </header>
+  );
+}

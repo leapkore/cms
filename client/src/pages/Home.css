@@ -1,0 +1,9 @@
+.home-section-01{
+    margin-top: -80px;
+    height: 100vh;
+    padding: 0 50px;
+    background: url('../Images/bg-img-02.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
